@@ -1,0 +1,685 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Teams of Use</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+-webkit-scrollbar {
+    width: 0px;
+}
+	
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+article {
+	padding: 0 2em 0 2em;
+}
+	
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="482e2a70-c73a-4dfe-9bee-b407c75077da" class="page sans"><header><h1 class="page-title">Teams of Use</h1><p class="page-description"></p></header><div class="page-body"><p id="f619ecd6-9401-4b4e-a686-53d337d82f62" class=""><strong>Last updated</strong> <strong>June 06, 2024</strong></p><p id="3cfe1be6-3a78-4d06-96fb-fbfd02fedc36" class=""><strong>AGREEMENT TO OUR LEGAL TERMS</strong></p><p id="745b8f7c-15ea-42c6-b187-ec4fa62705d4" class="">We are Maplesoup, Inc (&quot;<strong>Company</strong>,&quot; &quot;<strong>we</strong>,&quot; &quot;<strong>us</strong>,&quot; &quot;<strong>our</strong>&quot;).</p><p id="2de119ef-99b9-48fe-b7e2-c2b3cfb15a6d" class="">We operate the website <a href="http://www.maplesoup.ca/">http://www.maplesoup.ca</a> (the &quot;<strong>Site</strong>&quot;), as well as any other related products and services that refer or link to these legal terms (the &quot;<strong>Legal Terms</strong>&quot;) (collectively, the &quot;<strong>Services</strong>&quot;).</p><p id="b368fd27-a314-4895-8b1e-48d434162f62" class="">You can contact us by phone at email at maplesoup.help@gmail.com.</p><p id="4bbf821d-c52c-449b-b9cd-110636ea46e9" class="">These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity (&quot;<strong>you</strong>&quot;), and Maplesoup, Inc, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.</p><p id="e1eee347-dcf3-4a34-8e67-23e48b8b187f" class="">Supplemental terms and conditions or documents that may be posted on the Services from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Legal Terms at any time and for any reason. We will alert you about any changes by updating the &quot;Last updated&quot; date of these Legal Terms, and you waive any right to receive specific notice of each such change. It is your responsibility to periodically review these Legal Terms to stay informed of updates. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Legal Terms by your continued use of the Services after the date such revised Legal Terms are posted.</p><p id="9e805515-59ec-49b1-bc1c-f468cbf4df5b" class="">The Services are intended for users who are at least 18 years old. Persons under the age of 18 are not permitted to use or register for the Services.</p><p id="833ff5e4-ad35-4601-a067-ad4b5c243852" class="">We recommend that you print a copy of these Legal Terms for your records.</p><p id="9dc40cbc-27ed-4f83-b090-47649c748fa6" class=""><strong>TABLE OF CONTENTS</strong></p><p id="85af3cdf-a54c-445e-92cb-5cce8a2cd805" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#services">1. OUR SERVICES</a></p><p id="29271a0d-fdf9-4645-ad60-3240da7e8910" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#ip">2. INTELLECTUAL PROPERTY RIGHTS</a></p><p id="590fa8b3-c8d7-41a4-a866-ba37c6bc4ac6" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#userreps">3. USER REPRESENTATIONS</a></p><p id="ef494e0a-7d9c-4248-8ab3-4d75ddab24ed" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#userreg">4. USER REGISTRATION</a></p><p id="1f79e542-e155-4409-a481-f869b7a90ddf" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#prohibited">5. PROHIBITED ACTIVITIES</a></p><p id="a8340e3e-62e3-4546-93c8-d47431de38a6" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#ugc">6. USER GENERATED CONTRIBUTIONS</a></p><p id="6c1b2336-4c24-4211-a3e1-c759abbff664" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#license">7. CONTRIBUTION LICENSE</a></p><p id="174371d8-a60c-4cdd-be47-5771a684a88d" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#socialmedia">8. SOCIAL MEDIA</a></p><p id="289c6ee1-6dcb-4db1-b714-7c4fe38d194a" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#advertisers">9. ADVERTISERS</a></p><p id="e04f8cf5-8ff4-4280-ae02-72a615c2f6c7" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#sitemanage">10. SERVICES MANAGEMENT</a></p><p id="a2cfc5be-fc89-470e-9c7a-a46a935cea80" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#ppyes">11. PRIVACY POLICY</a></p><p id="d84d1032-aa2f-446d-9691-777edf27bea8" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#copyrightno">12. COPYRIGHT INFRINGEMENTS</a></p><p id="77fa9d70-03a5-43ac-8c2d-337c0fc29b46" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#terms">13. TERM AND TERMINATION</a></p><p id="4f457a1c-ff4a-407b-b4da-7ff51cdc4706" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#modifications">14. MODIFICATIONS AND INTERRUPTIONS</a></p><p id="14f03b57-e92c-4056-8c02-1e3adb156be4" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#law">15. GOVERNING LAW</a></p><p id="94b56294-daf8-44e3-a13b-8125d875f025" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#disputes">16. DISPUTE RESOLUTION</a></p><p id="fc435771-0c9b-44ed-855a-35784dd88243" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#corrections">17. CORRECTIONS</a></p><p id="aa97f2cf-a807-4e8e-a541-40a1a408ec20" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#disclaimer">18. DISCLAIMER</a></p><p id="5b0c7ab6-b4ec-465b-af7c-9afaf988f28b" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#liability">19. LIMITATIONS OF LIABILITY</a></p><p id="6a09775f-f637-4701-b15d-d0599dcc9447" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#indemnification">20. INDEMNIFICATION</a></p><p id="07cd04d7-0067-4432-9f49-50248a33064e" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#userdata">21. USER DATA</a></p><p id="fccaaf71-f2b1-46fd-bdd2-9b80b7e328ce" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#electronic">22. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</a></p><p id="b1a790b5-b972-4ac4-a9ee-fa1e22071def" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#misc">23. MISCELLANEOUS</a></p><p id="2bc848d7-5de7-4349-ab4f-e4f4a1bd34f5" class=""><a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#contact">24. CONTACT US</a></p><p id="aab1cc55-9590-42f3-bee5-0f8a2b90ce7a" class=""><strong>1. OUR SERVICES</strong></p><p id="d62be7f1-abbb-46df-a370-63452b40472e" class="">The information provided when using the Services is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the Services from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable.</p><p id="96db40c8-fa47-4252-9e19-ea709df33c8d" class=""><strong>2. INTELLECTUAL PROPERTY RIGHTS</strong></p><p id="7c88e54e-4d47-41ac-a8e9-d4a8e5f30368" class=""><strong>Our intellectual property</strong></p><p id="658c9952-ef45-44f3-a76e-5bdcf9efa0ba" class="">We are the owner or the licensee of all intellectual property rights in our Services, including all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics in the Services (collectively, the &quot;Content&quot;), as well as the trademarks, service marks, and logos contained therein (the &quot;Marks&quot;).</p><p id="4fffa61d-f48e-4c3f-a7b8-63a0283079c2" class="">Our Content and Marks are protected by copyright and trademark laws (and various other intellectual property rights and unfair competition laws) and treaties in the United States and around the world.</p><p id="4f976fe2-1985-4115-b355-29233257f813" class="">The Content and Marks are provided in or through the Services &quot;AS IS&quot; for your personal, non-commercial use or internal business purpose only.</p><p id="478761c6-64f6-4d4e-8292-d45d648e1675" class=""><strong>Your use of our Services</strong></p><p id="eabe593f-0a1c-4fe1-97a0-35258a426913" class="">Subject to your compliance with these Legal Terms, including the &quot;<a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#prohibited">PROHIBITED ACTIVITIES</a>&quot; section below, we grant you a non-exclusive, non-transferable, revocable license to:</p><ul id="a8c26889-aba5-480c-a591-a86e10c1cad4" class="bulleted-list"><li style="list-style-type:disc">access the Services; and</li></ul><ul id="e67557ad-92ae-4909-a3ff-945f5f3e3d06" class="bulleted-list"><li style="list-style-type:disc">download or print a copy of any portion of the Content to which you have properly gained access.</li></ul><p id="c53cacd9-bc6c-4912-a864-c56a2492be20" class="">solely for your personal, non-commercial use or internal business purpose.</p><p id="ffab4d5c-f0bd-4cca-88b8-9072379544bc" class="">Except as set out in this section or elsewhere in our Legal Terms, no part of the Services and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.</p><p id="667f5a2e-a6cb-4d1d-a9bd-3023a4c568a6" class="">If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: maplesoup.help@gmail.com. If we ever grant you the permission to post, reproduce, or publicly display any part of our Services or Content, you must identify us as the owners or licensors of the Services, Content, or Marks and ensure that any copyright or proprietary notice appears or is visible on posting, reproducing, or displaying our Content.</p><p id="8cdeebf6-2e6a-48da-b114-f1caa5d47b4e" class="">We reserve all rights not expressly granted to you in and to the Services, Content, and Marks.</p><p id="86bbdd9e-9645-4186-a8be-58ad1afca815" class="">Any breach of these Intellectual Property Rights will constitute a material breach of our Legal Terms and your right to use our Services will terminate immediately.</p><p id="d440de97-edcb-4096-8945-a32e74a8878d" class=""><strong>Your submissions and contributions</strong></p><p id="2109a7fd-bcea-434f-8736-bb4b4c31858f" class="">Please review this section and the &quot;<a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#prohibited">PROHIBITED ACTIVITIES</a>&quot; section carefully prior to using our Services to understand the (a) rights you give us and (b) obligations you have when you post or upload any content through the Services.</p><p id="16f19d24-01c3-428c-8545-03855e29eec5" class=""><strong>Submissions:</strong> By directly sending us any question, comment, suggestion, idea, feedback, or other information about the Services (&quot;Submissions&quot;), you agree to assign to us all intellectual property rights in such Submission. You agree that we shall own this Submission and be entitled to its unrestricted use and dissemination for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you.</p><p id="0191857f-66f6-4eb4-a017-86b5146c1e09" class=""><strong>Contributions:</strong> The Services may invite you to chat, contribute to, or participate in blogs, message boards, online forums, and other functionality during which you may create, submit, post, display, transmit, publish, distribute, or broadcast content and materials to us or through the Services, including but not limited to text, writings, video, audio, photographs, music, graphics, comments, reviews, rating suggestions, personal information, or other material (&quot;Contributions&quot;). Any Submission that is publicly posted shall also be treated as a Contribution.</p><p id="187d974e-a50d-4071-a79b-e99ed67efb9e" class="">You understand that Contributions may be viewable by other users of the Services.</p><p id="847ca8ee-2f52-46e3-88d9-ffee79a4918f" class=""><strong>When you post Contributions, you grant us a license (including use of your name, trademarks, and logos): </strong>By posting any Contributions, you grant us an unrestricted, unlimited, irrevocable, perpetual, non-exclusive, transferable, royalty-free, fully-paid, worldwide right, and license to: use, copy, reproduce, distribute, sell, resell, publish, broadcast, retitle, store, publicly perform, publicly display, reformat, translate, excerpt (in whole or in part), and exploit your Contributions (including, without limitation, your image, name, and voice) for any purpose, commercial, advertising, or otherwise, to prepare derivative works of, or incorporate into other works, your Contributions, and to sublicense the licenses granted in this section. Our use and distribution may occur in any media formats and through any media channels.</p><p id="97966156-e9d6-4434-8d48-aba50da2cc1d" class="">This license includes our use of your name, company name, and franchise name, as applicable, and any of the trademarks, service marks, trade names, logos, and personal and commercial images you provide.</p><p id="6d30aa08-22c9-4ec3-89d0-a5d1e40921e4" class=""><strong>You are responsible for what you post or upload:</strong> By sending us Submissions and/or posting Contributions through any part of the Services or making Contributions accessible through the Services by linking your account through the Services to any of your social networking accounts, you:</p><ul id="b2799967-6389-488a-8f74-125f4aa682fa" class="bulleted-list"><li style="list-style-type:disc">confirm that you have read and agree with our &quot;<a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#prohibited">PROHIBITED ACTIVITIES</a>&quot; and will not post, send, publish, upload, or transmit through the Services any Submission nor post any Contribution that is illegal, harassing, hateful, harmful, defamatory, obscene, bullying, abusive, discriminatory, threatening to any person or group, sexually explicit, false, inaccurate, deceitful, or misleading;</li></ul><ul id="91367222-70c0-4099-808f-1f9e7aab8411" class="bulleted-list"><li style="list-style-type:disc">to the extent permissible by applicable law, waive any and all moral rights to any such Submission and/or Contribution;</li></ul><ul id="dc81a72b-dc4d-497c-8c4c-5a2533ea49d8" class="bulleted-list"><li style="list-style-type:disc">warrant that any such Submission and/or Contributions are original to you or that you have the necessary rights and licenses to submit such Submissions and/or Contributions and that you have full authority to grant us the above-mentioned rights in relation to your Submissions and/or Contributions; and</li></ul><ul id="8526c03a-e048-4b45-beb5-9af416fd55b0" class="bulleted-list"><li style="list-style-type:disc">warrant and represent that your Submissions and/or Contributions do not constitute confidential information.</li></ul><p id="ac6a7a3e-b077-46e7-a77e-2317a2a62de4" class="">You are solely responsible for your Submissions and/or Contributions and you expressly agree to reimburse us for any and all losses that we may suffer because of your breach of (a) this section, (b) any third party’s intellectual property rights, or (c) applicable law.</p><p id="7761e0de-8862-4929-81c3-4142f362701a" class=""><strong>We may remove or edit your Content:</strong> Although we have no obligation to monitor any Contributions, we shall have the right to remove or edit any Contributions at any time without notice if in our reasonable opinion we consider such Contributions harmful or in breach of these Legal Terms. If we remove or edit any such Contributions, we may also suspend or disable your account and report you to the authorities.</p><p id="6f4e88a3-0e56-482c-a5ab-1d3993890aed" class=""><strong>Copyright infringement</strong></p><p id="5c93c837-b648-4517-9029-6b6ac76a1611" class="">We respect the intellectual property rights of others. If you believe that any material available on or through the Services infringes upon any copyright you own or control, please immediately refer to the &quot;<a href="https://app.termly.io/dashboard/website/55d9642a-1cda-464c-a171-fc04aa0a58c5/terms-of-service#copyrightno">COPYRIGHT INFRINGEMENTS</a>&quot; section below.</p><p id="627cac2e-df4d-442a-87e7-193760711dfb" class=""><strong>3. USER REPRESENTATIONS</strong></p><p id="8cacb853-f346-44ed-9839-d5f3ec47f919" class="">By using the Services, you represent and warrant that: (1) all registration information you submit will be true, accurate, current, and complete; (2) you will maintain the accuracy of such information and promptly update such registration information as necessary; (3) you have the legal capacity and you agree to comply with these Legal Terms; (4) you are not a minor in the jurisdiction in which you reside; (5) you will not access the Services through automated or non-human means, whether through a bot, script or otherwise; (6) you will not use the Services for any illegal or unauthorized purpose; and (7) your use of the Services will not violate any applicable law or regulation.</p><p id="187b407c-5c7b-4415-86fc-97b9b211fb16" class="">If you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right to suspend or terminate your account and refuse any and all current or future use of the Services (or any portion thereof).</p><p id="346f4e1f-9b74-4551-9d30-2be9a42575e5" class=""><strong>4. USER REGISTRATION</strong></p><p id="5e867794-3971-4d13-b329-dc15abacb06f" class="">You may be required to register to use the Services. You agree to keep your password confidential and will be responsible for all use of your account and password. We reserve the right to remove, reclaim, or change a username you select if we determine, in our sole discretion, that such username is inappropriate, obscene, or otherwise objectionable.</p><p id="6b368b3b-7cea-4276-b8c5-d329b19962fe" class=""><strong>5. PROHIBITED ACTIVITIES</strong></p><p id="67df3448-1128-43ba-bd66-eebd44e6e54e" class="">You may not access or use the Services for any purpose other than that for which we make the Services available. The Services may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.</p><p id="56234a3e-8748-425d-b88a-aeee97f23c9c" class="">As a user of the Services, you agree not to:</p><ul id="38ec27ba-3dde-44c0-8061-5137e036a652" class="bulleted-list"><li style="list-style-type:disc">Systematically retrieve data or other content from the Services to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.</li></ul><ul id="fd9753cb-e57c-4db6-8f47-9a0ba004c092" class="bulleted-list"><li style="list-style-type:disc">Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.</li></ul><ul id="cd796124-bf7d-4c93-8ab1-030e5b773b8c" class="bulleted-list"><li style="list-style-type:disc">Circumvent, disable, or otherwise interfere with security-related features of the Services, including features that prevent or restrict the use or copying of any Content or enforce limitations on the use of the Services and/or the Content contained therein.</li></ul><ul id="6ccc07df-ae98-480e-a482-e7fde25d3ac8" class="bulleted-list"><li style="list-style-type:disc">Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Services.</li></ul><ul id="6653519f-c617-4ebe-833e-de9edb88186e" class="bulleted-list"><li style="list-style-type:disc">Use any information obtained from the Services in order to harass, abuse, or harm another person.</li></ul><ul id="bb9b6066-31ca-409b-abb9-d5516737a9dd" class="bulleted-list"><li style="list-style-type:disc">Make improper use of our support services or submit false reports of abuse or misconduct.</li></ul><ul id="a77dfd1b-f1cd-498a-a306-fd718a7b6e6f" class="bulleted-list"><li style="list-style-type:disc">Use the Services in a manner inconsistent with any applicable laws or regulations.</li></ul><ul id="163ca3ac-6656-4d55-aec1-44269f342019" class="bulleted-list"><li style="list-style-type:disc">Engage in unauthorized framing of or linking to the Services.</li></ul><ul id="39db7307-c1a9-4f7c-9c28-0bc6758b9e9e" class="bulleted-list"><li style="list-style-type:disc">Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party’s uninterrupted use and enjoyment of the Services or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Services.</li></ul><ul id="bf60e38c-d7c7-43a4-ad49-b395ac8d0e42" class="bulleted-list"><li style="list-style-type:disc">Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools.</li></ul><ul id="aff2b69e-bd35-4cfb-ba19-66857d52c6c9" class="bulleted-list"><li style="list-style-type:disc">Delete the copyright or other proprietary rights notice from any Content.</li></ul><ul id="69ec1e4c-44bc-45f3-b2aa-957d6af7b226" class="bulleted-list"><li style="list-style-type:disc">Attempt to impersonate another user or person or use the username of another user.</li></ul><ul id="6cc59305-d7e2-4dab-81a3-4babf15f641f" class="bulleted-list"><li style="list-style-type:disc">Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats (&quot;gifs&quot;), 1×1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as &quot;spyware&quot; or &quot;passive collection mechanisms&quot; or &quot;pcms&quot;).</li></ul><ul id="d159cf7a-97dc-4fe1-a60a-8e5bc5eaf557" class="bulleted-list"><li style="list-style-type:disc">Interfere with, disrupt, or create an undue burden on the Services or the networks or services connected to the Services.</li></ul><ul id="d111d199-1292-46e0-b006-74aee986e47d" class="bulleted-list"><li style="list-style-type:disc">Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Services to you.</li></ul><ul id="096b65af-2d0d-47e8-a804-f83f71784539" class="bulleted-list"><li style="list-style-type:disc">Attempt to bypass any measures of the Services designed to prevent or restrict access to the Services, or any portion of the Services.</li></ul><ul id="78bd6c50-896e-4032-a9a7-a18a2c5c610d" class="bulleted-list"><li style="list-style-type:disc">Copy or adapt the Services&#x27; software, including but not limited to Flash, PHP, HTML, JavaScript, or other code.</li></ul><ul id="4e5473b9-d3d4-4199-b28b-8d57cb81390b" class="bulleted-list"><li style="list-style-type:disc">Except as permitted by applicable law, decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Services.</li></ul><ul id="fa92136e-5552-4ff7-972d-ee3719bcbceb" class="bulleted-list"><li style="list-style-type:disc">Except as may be the result of standard search engine or Internet browser usage, use, launch, develop, or distribute any automated system, including without limitation, any spider, robot, cheat utility, scraper, or offline reader that accesses the Services, or use or launch any unauthorized script or other software.</li></ul><ul id="ef9e8584-726a-4043-af40-49e6ef6b77c9" class="bulleted-list"><li style="list-style-type:disc">Use a buying agent or purchasing agent to make purchases on the Services.</li></ul><ul id="10edf1e1-0f61-4819-bbfa-bfcad5af1079" class="bulleted-list"><li style="list-style-type:disc">Make any unauthorized use of the Services, including collecting usernames and/or email addresses of users by electronic or other means for the purpose of sending unsolicited email, or creating user accounts by automated means or under false pretenses.</li></ul><ul id="4907d6f1-752b-4a60-9b1b-d167d11acb22" class="bulleted-list"><li style="list-style-type:disc">Use the Services as part of any effort to compete with us or otherwise use the Services and/or the Content for any revenue-generating endeavor or commercial enterprise.</li></ul><p id="bbd68060-9fe0-4fc4-970d-77d9deaf9df6" class=""><strong>6. USER GENERATED CONTRIBUTIONS</strong></p><p id="6fadc70e-f75f-4128-8437-3bd746346075" class="">The Services may invite you to chat, contribute to, or participate in blogs, message boards, online forums, and other functionality, and may provide you with the opportunity to create, submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials to us or on the Services, including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, or personal information or other material (collectively, &quot;Contributions&quot;). Contributions may be viewable by other users of the Services and through third-party websites. As such, any Contributions you transmit may be treated as non-confidential and non-proprietary. When you create or make available any Contributions, you thereby represent and warrant that:</p><ul id="ad13d377-26cd-49bd-9d9a-99abb7105597" class="bulleted-list"><li style="list-style-type:disc">The creation, distribution, transmission, public display, or performance, and the accessing, downloading, or copying of your Contributions do not and will not infringe the proprietary rights, including but not limited to the copyright, patent, trademark, trade secret, or moral rights of any third party.</li></ul><ul id="8d9fabaf-6099-4c73-b972-67faa1a2fb0d" class="bulleted-list"><li style="list-style-type:disc">You are the creator and owner of or have the necessary licenses, rights, consents, releases, and permissions to use and to authorize us, the Services, and other users of the Services to use your Contributions in any manner contemplated by the Services and these Legal Terms.</li></ul><ul id="b11bddbe-8c05-42d4-846b-6fa2f3adfc58" class="bulleted-list"><li style="list-style-type:disc">You have the written consent, release, and/or permission of each and every identifiable individual person in your Contributions to use the name or likeness of each and every such identifiable individual person to enable inclusion and use of your Contributions in any manner contemplated by the Services and these Legal Terms.</li></ul><ul id="283e5bf9-e152-48f3-94bd-46e7f6ab223e" class="bulleted-list"><li style="list-style-type:disc">Your Contributions are not false, inaccurate, or misleading.</li></ul><ul id="995176fb-07e9-4883-8b9b-1325993b5e85" class="bulleted-list"><li style="list-style-type:disc">Your Contributions are not unsolicited or unauthorized advertising, promotional materials, pyramid schemes, chain letters, spam, mass mailings, or other forms of solicitation.</li></ul><ul id="4c7ec0c2-761c-4a52-9d8f-aa173d16450e" class="bulleted-list"><li style="list-style-type:disc">Your Contributions are not obscene, lewd, lascivious, filthy, violent, harassing, libelous, slanderous, or otherwise objectionable (as determined by us).</li></ul><ul id="99dfa343-9836-4ae5-b3c4-2ab390244dce" class="bulleted-list"><li style="list-style-type:disc">Your Contributions do not ridicule, mock, disparage, intimidate, or abuse anyone.</li></ul><ul id="56eb7527-90b7-4cb7-af13-4b41f3a3e76c" class="bulleted-list"><li style="list-style-type:disc">Your Contributions are not used to harass or threaten (in the legal sense of those terms) any other person and to promote violence against a specific person or class of people.</li></ul><ul id="2d972d08-17ff-4d4e-867f-c938f03d299c" class="bulleted-list"><li style="list-style-type:disc">Your Contributions do not violate any applicable law, regulation, or rule.</li></ul><ul id="563e241c-8a04-4693-bec2-252ccc6975c0" class="bulleted-list"><li style="list-style-type:disc">Your Contributions do not violate the privacy or publicity rights of any third party.</li></ul><ul id="47fa7e70-ff44-4936-b623-1c1764c31ab2" class="bulleted-list"><li style="list-style-type:disc">Your Contributions do not violate any applicable law concerning child pornography, or otherwise intended to protect the health or well-being of minors.</li></ul><ul id="86ad8210-9b76-41ea-ae8d-ac405605c1c5" class="bulleted-list"><li style="list-style-type:disc">Your Contributions do not include any offensive comments that are connected to race, national origin, gender, sexual preference, or physical handicap.</li></ul><ul id="4255df6c-c76e-49a3-a555-cfb714ed4df4" class="bulleted-list"><li style="list-style-type:disc">Your Contributions do not otherwise violate, or link to material that violates, any provision of these Legal Terms, or any applicable law or regulation.</li></ul><p id="ae39dbf1-2084-4eae-bf85-7c452ea549e4" class="">Any use of the Services in violation of the foregoing violates these Legal Terms and may result in, among other things, termination or suspension of your rights to use the Services.</p><p id="eb45eb2a-c8b5-4a23-af2f-7f9a2fccd022" class=""><strong>7. CONTRIBUTION LICENSE</strong></p><p id="0257b4fb-c731-4d54-8ba2-6f90599c6f5d" class="">By posting your Contributions to any part of the Services or making Contributions accessible to the Services by linking your account from the Services to any of your social networking accounts, you automatically grant, and you represent and warrant that you have the right to grant, to us an unrestricted, unlimited, irrevocable, perpetual, non-exclusive, transferable, royalty-free, fully-paid, worldwide right, and license to host, use, copy, reproduce, disclose, sell, resell, publish, broadcast, retitle, archive, store, cache, publicly perform, publicly display, reformat, translate, transmit, excerpt (in whole or in part), and distribute such Contributions (including, without limitation, your image and voice) for any purpose, commercial, advertising, or otherwise, and to prepare derivative works of, or incorporate into other works, such Contributions, and grant and authorize sublicenses of the foregoing. The use and distribution may occur in any media formats and through any media channels.</p><p id="5d63e356-794a-4c09-82f6-a88587548a45" class="">This license will apply to any form, media, or technology now known or hereafter developed, and includes our use of your name, company name, and franchise name, as applicable, and any of the trademarks, service marks, trade names, logos, and personal and commercial images you provide. You waive all moral rights in your Contributions, and you warrant that moral rights have not otherwise been asserted in your Contributions.</p><p id="0e2daaa1-c4e4-4cad-aa54-f1ec4d02568e" class="">We do not assert any ownership over your Contributions. You retain full ownership of all of your Contributions and any intellectual property rights or other proprietary rights associated with your Contributions. We are not liable for any statements or representations in your Contributions provided by you in any area on the Services. You are solely responsible for your Contributions to the Services and you expressly agree to exonerate us from any and all responsibility and to refrain from any legal action against us regarding your Contributions.</p><p id="c664aab0-46a9-43c5-898c-f9c1253e9ee6" class="">We have the right, in our sole and absolute discretion, (1) to edit, redact, or otherwise change any Contributions; (2) to re-categorize any Contributions to place them in more appropriate locations on the Services; and (3) to pre-screen or delete any Contributions at any time and for any reason, without notice. We have no obligation to monitor your Contributions.</p><p id="e90cb82c-0a33-4aae-b9a9-5b077f28e6c0" class=""><strong>8. SOCIAL MEDIA</strong></p><p id="a6a9bf92-46b6-4044-a30d-8f24a366fa95" class="">As part of the functionality of the Services, you may link your account with online accounts you have with third-party service providers (each such account, a &quot;Third-Party Account&quot;) by either: (1) providing your Third-Party Account login information through the Services; or (2) allowing us to access your Third-Party Account, as is permitted under the applicable terms and conditions that govern your use of each Third-Party Account. You represent and warrant that you are entitled to disclose your Third-Party Account login information to us and/or grant us access to your Third-Party Account, without breach by you of any of the terms and conditions that govern your use of the applicable Third-Party Account, and without obligating us to pay any fees or making us subject to any usage limitations imposed by the third-party service provider of the Third-Party Account. By granting us access to any Third-Party Accounts, you understand that (1) we may access, make available, and store (if applicable) any content that you have provided to and stored in your Third-Party Account (the &quot;Social Network Content&quot;) so that it is available on and through the Services via your account, including without limitation any friend lists and (2) we may submit to and receive from your Third-Party Account additional information to the extent you are notified when you link your account with the Third-Party Account. Depending on the Third-Party Accounts you choose and subject to the privacy settings that you have set in such Third-Party Accounts, personally identifiable information that you post to your Third-Party Accounts may be available on and through your account on the Services. Please note that if a Third-Party Account or associated service becomes unavailable or our access to such Third-Party Account is terminated by the third-party service provider, then Social Network Content may no longer be available on and through the Services. You will have the ability to disable the connection between your account on the Services and your Third-Party Accounts at any time. PLEASE NOTE THAT YOUR RELATIONSHIP WITH THE THIRD-PARTY SERVICE PROVIDERS ASSOCIATED WITH YOUR THIRD-PARTY ACCOUNTS IS GOVERNED SOLELY BY YOUR AGREEMENT(S) WITH SUCH THIRD-PARTY SERVICE PROVIDERS. We make no effort to review any Social Network Content for any purpose, including but not limited to, for accuracy, legality, or non-infringement, and we are not responsible for any Social Network Content. You acknowledge and agree that we may access your email address book associated with a Third-Party Account and your contacts list stored on your mobile device or tablet computer solely for purposes of identifying and informing you of those contacts who have also registered to use the Services. You can deactivate the connection between the Services and your Third-Party Account by contacting us using the contact information below or through your account settings (if applicable). We will attempt to delete any information stored on our servers that was obtained through such Third-Party Account, except the username and profile picture that become associated with your account.</p><p id="78d4b239-d51a-4aa1-a5ad-0c85dcd16896" class=""><strong>9. ADVERTISERS</strong></p><p id="fc4565be-79c9-4071-ad99-b549cf001e6c" class="">We allow advertisers to display their advertisements and other information in certain areas of the Services, such as sidebar advertisements or banner advertisements. We simply provide the space to place such advertisements, and we have no other relationship with advertisers.</p><p id="4153e71e-d950-44ff-98b8-b1d4b3cc2a4f" class=""><strong>10. SERVICES MANAGEMENT</strong></p><p id="aaf82b24-0e9f-4bea-8156-19b9b18d2e57" class="">We reserve the right, but not the obligation, to: (1) monitor the Services for violations of these Legal Terms; (2) take appropriate legal action against anyone who, in our sole discretion, violates the law or these Legal Terms, including without limitation, reporting such user to law enforcement authorities; (3) in our sole discretion and without limitation, refuse, restrict access to, limit the availability of, or disable (to the extent technologically feasible) any of your Contributions or any portion thereof; (4) in our sole discretion and without limitation, notice, or liability, to remove from the Services or otherwise disable all files and content that are excessive in size or are in any way burdensome to our systems; and (5) otherwise manage the Services in a manner designed to protect our rights and property and to facilitate the proper functioning of the Services.</p><p id="7f823256-f126-4227-ae28-60a952a9bc54" class=""><strong>11. PRIVACY POLICY</strong></p><p id="a932e93c-decf-4d49-9ce6-e1c7f62f5fd5" class="">We care about data privacy and security. Please review our Privacy Policy:<strong> </strong><strong><a href="https://www.notion.so/Privacy-Policy-4107a756e79648198cd078586e663963?pvs=21">https://mud-pheasant-265.notion.site/Privacy-Policy-4107a756e79648198cd078586e663963</a></strong>. By using the Services, you agree to be bound by our Privacy Policy, which is incorporated into these Legal Terms. Please be advised the Services are hosted in Canada. If you access the Services from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in Canada, then through your continued use of the Services, you are transferring your data to Canada, and you expressly consent to have your data transferred to and processed in Canada.</p><p id="32ffe94d-af55-4cd0-bd3d-d4f3725a4de1" class=""><strong>12. COPYRIGHT INFRINGEMENTS</strong></p><p id="d9d12272-f022-4075-97f1-55daa375abed" class="">We respect the intellectual property rights of others. If you believe that any material available on or through the Services infringes upon any copyright you own or control, please immediately notify us using the contact information provided below (a &quot;Notification&quot;). A copy of your Notification will be sent to the person who posted or stored the material addressed in the Notification. Please be advised that pursuant to applicable law you may be held liable for damages if you make material misrepresentations in a Notification. Thus, if you are not sure that material located on or linked to by the Services infringes your copyright, you should consider first contacting an attorney.</p><p id="557c28bd-04e8-4620-9c7c-c5f0d26d3294" class=""><strong>13. TERM AND TERMINATION</strong></p><p id="06ec573d-1dcf-46df-9ef3-3112c1899a3e" class="">These Legal Terms shall remain in full force and effect while you use the Services. WITHOUT LIMITING ANY OTHER PROVISION OF THESE LEGAL TERMS, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE SERVICES (INCLUDING BLOCKING CERTAIN IP ADDRESSES), TO ANY PERSON FOR ANY REASON OR FOR NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY REPRESENTATION, WARRANTY, OR COVENANT CONTAINED IN THESE LEGAL TERMS OR OF ANY APPLICABLE LAW OR REGULATION. WE MAY TERMINATE YOUR USE OR PARTICIPATION IN THE SERVICES OR DELETE YOUR ACCOUNT AND ANY CONTENT OR INFORMATION THAT YOU POSTED AT ANY TIME, WITHOUT WARNING, IN OUR SOLE DISCRETION.</p><p id="33f74b59-5d32-415f-a810-ed064e63d0a8" class="">If we terminate or suspend your account for any reason, you are prohibited from registering and creating a new account under your name, a fake or borrowed name, or the name of any third party, even if you may be acting on behalf of the third party. In addition to terminating or suspending your account, we reserve the right to take appropriate legal action, including without limitation pursuing civil, criminal, and injunctive redress.</p><p id="23d9a801-55c5-4b61-823b-8ce5d070bbfe" class=""><strong>14. MODIFICATIONS AND INTERRUPTIONS</strong></p><p id="6dc762ca-0162-48ee-b730-5fe57fbbd7e8" class="">We reserve the right to change, modify, or remove the contents of the Services at any time or for any reason at our sole discretion without notice. However, we have no obligation to update any information on our Services. We will not be liable to you or any third party for any modification, price change, suspension, or discontinuance of the Services.</p><p id="41fc18c5-4dd0-4fa1-be15-3b098b86ce8a" class="">We cannot guarantee the Services will be available at all times. We may experience hardware, software, or other problems or need to perform maintenance related to the Services, resulting in interruptions, delays, or errors. We reserve the right to change, revise, update, suspend, discontinue, or otherwise modify the Services at any time or for any reason without notice to you. You agree that we have no liability whatsoever for any loss, damage, or inconvenience caused by your inability to access or use the Services during any downtime or discontinuance of the Services. Nothing in these Legal Terms will be construed to obligate us to maintain and support the Services or to supply any corrections, updates, or releases in connection therewith.</p><p id="d28f63c1-37d3-4dda-9b1c-f3c125c0e605" class=""><strong>15. GOVERNING LAW</strong></p><p id="c2bc173f-557a-4bcf-ae66-f93ee37ab5d0" class="">These Legal Terms shall be governed by and defined following the laws of Canada. Maplesoup, Inc and yourself irrevocably consent that the courts of Canada shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these Legal Terms.</p><p id="6cdbede0-6089-4679-8b1e-f1f50c6f40f1" class=""><strong>16. DISPUTE RESOLUTION</strong></p><p id="7b80c8cc-4b47-4774-834a-842137eaf764" class=""><strong>Informal Negotiations</strong></p><p id="671acd46-4523-4fd2-bd3c-6bd694e81538" class="">To expedite resolution and control the cost of any dispute, controversy, or claim related to these Legal Terms (each a &quot;Dispute&quot; and collectively, the &quot;Disputes&quot;) brought by either you or us (individually, a &quot;Party&quot; and collectively, the &quot;Parties&quot;), the Parties agree to first attempt to negotiate any Dispute (except those Disputes expressly provided below) informally for at least thirty (30) days before initiating arbitration. Such informal negotiations commence upon written notice from one Party to the other Party.</p><p id="f4f74000-5448-4671-a516-cf6dfdfa6dc2" class=""><strong>Binding Arbitration</strong></p><p id="f322a8b6-1313-48c0-aec4-f8584f0231af" class="">Any dispute arising out of or in connection with these Legal Terms, including any question regarding its existence, validity, or termination, shall be referred to and finally resolved by the International Commercial Arbitration Court under the European Arbitration Chamber (Belgium, Brussels, Avenue Louise, 146) according to the Rules of this ICAC, which, as a result of referring to it, is considered as the part of this clause. The number of arbitrators shall be one (1). The seat, or legal place, or arbitration shall be Montreal, Canada. The language of the proceedings shall be English. The governing law of these Legal Terms shall be substantive law of Canada.</p><p id="3a6066fc-4d26-4ee6-b27d-0cafc9ae27cd" class=""><strong>Restrictions</strong></p><p id="08252236-f84f-4363-9279-fa75df236310" class="">The Parties agree that any arbitration shall be limited to the Dispute between the Parties individually. To the full extent permitted by law, (a) no arbitration shall be joined with any other proceeding; (b) there is no right or authority for any Dispute to be arbitrated on a class-action basis or to utilize class action procedures; and (c) there is no right or authority for any Dispute to be brought in a purported representative capacity on behalf of the general public or any other persons.</p><p id="56dac032-f783-463c-9540-1d0bb3733fc7" class=""><strong>Exceptions to Informal Negotiations and Arbitration</strong></p><p id="acb254ea-b2c5-4065-b285-61e8af2da544" class="">The Parties agree that the following Disputes are not subject to the above provisions concerning informal negotiations binding arbitration: (a) any Disputes seeking to enforce or protect, or concerning the validity of, any of the intellectual property rights of a Party; (b) any Dispute related to, or arising from, allegations of theft, piracy, invasion of privacy, or unauthorized use; and (c) any claim for injunctive relief. If this provision is found to be illegal or unenforceable, then neither Party will elect to arbitrate any Dispute falling within that portion of this provision found to be illegal or unenforceable and such Dispute shall be decided by a court of competent jurisdiction within the courts listed for jurisdiction above, and the Parties agree to submit to the personal jurisdiction of that court.</p><p id="0102b333-ccaa-438a-9d1c-1c9ceff3c783" class=""><strong>17. CORRECTIONS</strong></p><p id="2c3298ed-4262-4481-a595-1a68c19ac375" class="">There may be information on the Services that contains typographical errors, inaccuracies, or omissions, including descriptions, pricing, availability, and various other information. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update the information on the Services at any time, without prior notice.</p><p id="ea4df76c-73d2-4404-93ce-142c3001c86d" class=""><strong>18. DISCLAIMER</strong></p><p id="cae7f675-4550-4726-ac73-8c31c83777ca" class="">THE SERVICES ARE PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SERVICES AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THE SERVICES&#x27; CONTENT OR THE CONTENT OF ANY WEBSITES OR MOBILE APPLICATIONS LINKED TO THE SERVICES AND WE WILL ASSUME NO LIABILITY OR RESPONSIBILITY FOR ANY (1) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT AND MATERIALS, (2) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF THE SERVICES, (3) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STORED THEREIN, (4) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SERVICES, (5) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH THE SERVICES BY ANY THIRD PARTY, AND/OR (6) ANY ERRORS OR OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SERVICES. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SERVICES, ANY HYPERLINKED WEBSITE, OR ANY WEBSITE OR MOBILE APPLICATION FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND WE WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND ANY THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.</p><p id="a0fa51ec-eae3-409e-afed-ef63bd73eb60" class=""><strong>19. LIMITATIONS OF LIABILITY</strong></p><p id="10c4200d-abc1-4b79-b4f0-87e5a671c85b" class="">IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SERVICES, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. NOTWITHSTANDING ANYTHING TO THE CONTRARY CONTAINED HEREIN, OUR LIABILITY TO YOU FOR ANY CAUSE WHATSOEVER AND REGARDLESS OF THE FORM OF THE ACTION, WILL AT ALL TIMES BE LIMITED TO THE AMOUNT PAID, IF ANY, BY YOU TO US DURING THE ONE (1) MONTH PERIOD PRIOR TO ANY CAUSE OF ACTION ARISING. CERTAIN US STATE LAWS AND INTERNATIONAL LAWS DO NOT ALLOW LIMITATIONS ON IMPLIED WARRANTIES OR THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES. IF THESE LAWS APPLY TO YOU, SOME OR ALL OF THE ABOVE DISCLAIMERS OR LIMITATIONS MAY NOT APPLY TO YOU, AND YOU MAY HAVE ADDITIONAL RIGHTS.</p><p id="97fc2983-ae6d-4c1c-a578-29e83d0fc0ff" class=""><strong>20. INDEMNIFICATION</strong></p><p id="eebbcb1a-4dd8-4f89-ab17-4cdbcaa44292" class="">You agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, and all of our respective officers, agents, partners, and employees, from and against any loss, damage, liability, claim, or demand, including reasonable attorneys’ fees and expenses, made by any third party due to or arising out of: (1) your Contributions; (2) use of the Services; (3) breach of these Legal Terms; (4) any breach of your representations and warranties set forth in these Legal Terms; (5) your violation of the rights of a third party, including but not limited to intellectual property rights; or (6) any overt harmful act toward any other user of the Services with whom you connected via the Services. Notwithstanding the foregoing, we reserve the right, at your expense, to assume the exclusive defense and control of any matter for which you are required to indemnify us, and you agree to cooperate, at your expense, with our defense of such claims. We will use reasonable efforts to notify you of any such claim, action, or proceeding which is subject to this indemnification upon becoming aware of it.</p><p id="ebfbadb7-05c5-41c3-8d07-423b61e27297" class=""><strong>21. USER DATA</strong></p><p id="a0863e73-a57d-4360-8055-998f950000c5" class="">We will maintain certain data that you transmit to the Services for the purpose of managing the performance of the Services, as well as data relating to your use of the Services. Although we perform regular routine backups of data, you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Services. You agree that we shall have no liability to you for any loss or corruption of any such data, and you hereby waive any right of action against us arising from any such loss or corruption of such data.</p><p id="1476ef72-d07e-4e8e-b7e8-a7d32ddaa5ac" class=""><strong>22. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</strong></p><p id="bf3c9ec0-4e8c-4896-9e3c-f2cd08c00917" class="">Visiting the Services, sending us emails, and completing online forms constitute electronic communications. You consent to receive electronic communications, and you agree that all agreements, notices, disclosures, and other communications we provide to you electronically, via email and on the Services, satisfy any legal requirement that such communication be in writing. YOU HEREBY AGREE TO THE USE OF ELECTRONIC SIGNATURES, CONTRACTS, ORDERS, AND OTHER RECORDS, AND TO ELECTRONIC DELIVERY OF NOTICES, POLICIES, AND RECORDS OF TRANSACTIONS INITIATED OR COMPLETED BY US OR VIA THE SERVICES. You hereby waive any rights or requirements under any statutes, regulations, rules, ordinances, or other laws in any jurisdiction which require an original signature or delivery or retention of non-electronic records, or to payments or the granting of credits by any means other than electronic means.</p><p id="7f15b4a8-9738-458f-bee9-2da2dc875dec" class=""><strong>23. MISCELLANEOUS</strong></p><p id="2b62428f-5859-4078-917d-ed3a6204b765" class="">These Legal Terms and any policies or operating rules posted by us on the Services or in respect to the Services constitute the entire agreement and understanding between you and us. Our failure to exercise or enforce any right or provision of these Legal Terms shall not operate as a waiver of such right or provision. These Legal Terms operate to the fullest extent permissible by law. We may assign any or all of our rights and obligations to others at any time. We shall not be responsible or liable for any loss, damage, delay, or failure to act caused by any cause beyond our reasonable control. If any provision or part of a provision of these Legal Terms is determined to be unlawful, void, or unenforceable, that provision or part of the provision is deemed severable from these Legal Terms and does not affect the validity and enforceability of any remaining provisions. There is no joint venture, partnership, employment or agency relationship created between you and us as a result of these Legal Terms or use of the Services. You agree that these Legal Terms will not be construed against us by virtue of having drafted them. You hereby waive any and all defenses you may have based on the electronic form of these Legal Terms and the lack of signing by the parties hereto to execute these Legal Terms.</p><p id="d23570d5-e349-4d7a-b657-3330c778f132" class=""><strong>24. CONTACT US</strong></p><p id="a1f5805a-47e2-4806-bd68-8be8e1391986" class="">In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at:</p><p id="ac2e4988-aa02-428c-82e7-8443e3d48f15" class=""><strong>Maplesoup, Inc</strong></p><p id="455e2f0a-6281-4710-8366-6a40430a6422" class=""><strong>maplesoup.help@gmail.com</strong></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
